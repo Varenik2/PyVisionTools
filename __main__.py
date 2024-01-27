@@ -6,10 +6,14 @@ def paint_function():
 
 def perform_action():
     user_action = input("What action do you want to perform? ")
-    Paint()
 
     if user_action.lower() == "Draw":
         paint_function()
+    else:
+        raise ValueError("Invalid action. Only 'Draw' is allowed.")
 
 if __name__ == "__main__":
-    perform_action()
+    try:
+        perform_action()
+    except ValueError as e:
+        print(f"Error: {e}")
